@@ -10,14 +10,14 @@ public class AheadMansion : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            text.text = "Troi mua roi tim cho chu an thoi";
+            text.text = "Minh dang o dau the nay";
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            text.text = "";
+            text.text = ""; 
         }
     }
 }
