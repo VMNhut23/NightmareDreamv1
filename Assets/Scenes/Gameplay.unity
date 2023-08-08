@@ -4323,7 +4323,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8396226, g: 0.1695087, b: 0.1695087, a: 1}
   m_Intensity: 0.93
   m_Range: 3.8025622
   m_SpotAngle: 120.906456
@@ -24944,6 +24944,7 @@ GameObject:
   - component: {fileID: 621114682}
   - component: {fileID: 621114681}
   - component: {fileID: 621114680}
+  - component: {fileID: 621114683}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -25018,6 +25019,66 @@ Transform:
   m_Father: {fileID: 2028678969}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &621114683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621114679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 621114682}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1001 &622207238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26809,10 +26870,10 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.95
+  m_Color: {r: 0.6792453, g: 0.3202508, b: 0.23965824, a: 1}
+  m_Intensity: 2.26
   m_Range: 3.8025622
-  m_SpotAngle: 120.906456
+  m_SpotAngle: 117
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -30994,6 +31055,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6602614755703747531, guid: 6ac04cd36ac974748b904aabeee8b1e5, type: 3}
   m_PrefabInstance: {fileID: 725376765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &725409009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+  m_PrefabInstance: {fileID: 2089982882}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &728808426
 PrefabInstance:
@@ -40533,7 +40599,8 @@ Transform:
   m_LocalPosition: {x: -0.010070801, y: 1.6501999, z: 0.1375122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 725409009}
   m_Father: {fileID: 2028678969}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -57143,6 +57210,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1495804296}
     m_Modifications:
+    - target: {fileID: 8057050384760974268, guid: c129f1f930e536e4980cc7ddc2937399, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8057050384760974269, guid: c129f1f930e536e4980cc7ddc2937399, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -62035,7 +62106,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6226415, g: 0.09045921, b: 0.09632853, a: 1}
   m_Intensity: 3.24
   m_Range: 1.9609375
   m_SpotAngle: 30
@@ -67876,6 +67947,18 @@ PrefabInstance:
       value: 2.84
       objectReference: {fileID: 0}
     - target: {fileID: 93166782054999247, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.13360626
+      objectReference: {fileID: 0}
+    - target: {fileID: 93166782054999247, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.13360626
+      objectReference: {fileID: 0}
+    - target: {fileID: 93166782054999247, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.16981131
+      objectReference: {fileID: 0}
+    - target: {fileID: 93166782054999247, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
       propertyPath: m_Intensity
       value: 3.02
       objectReference: {fileID: 0}
@@ -67954,6 +68037,18 @@ PrefabInstance:
     - target: {fileID: 4233057353825741030, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
       propertyPath: m_Range
       value: 2.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233057353825741030, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.049341418
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233057353825741030, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.049341418
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233057353825741030, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.05660379
       objectReference: {fileID: 0}
     - target: {fileID: 4233057353825741030, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
       propertyPath: m_Intensity
@@ -71555,8 +71650,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4.25
+  m_Color: {r: 0.735849, g: 0.27351367, b: 0.27351367, a: 1}
+  m_Intensity: 4.4
   m_Range: 1.190094
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -71598,7 +71693,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0.22
   m_ColorTemperature: 9010
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -75843,7 +75938,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8584906, g: 0.18141682, b: 0.18141682, a: 1}
   m_Intensity: 2.14
   m_Range: 2.1087952
   m_SpotAngle: 30
@@ -79608,8 +79703,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 7.87
+  m_Color: {r: 0.7924528, g: 0.22726944, b: 0.22726944, a: 1}
+  m_Intensity: 2.34
   m_Range: 2.1744995
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -81753,6 +81848,18 @@ PrefabInstance:
       value: 2.84
       objectReference: {fileID: 0}
     - target: {fileID: 93166782054999247, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.13677467
+      objectReference: {fileID: 0}
+    - target: {fileID: 93166782054999247, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.13677467
+      objectReference: {fileID: 0}
+    - target: {fileID: 93166782054999247, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.16037738
+      objectReference: {fileID: 0}
+    - target: {fileID: 93166782054999247, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
       propertyPath: m_Intensity
       value: 2.18
       objectReference: {fileID: 0}
@@ -81831,6 +81938,18 @@ PrefabInstance:
     - target: {fileID: 4233057353825741030, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
       propertyPath: m_Range
       value: 2.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233057353825741030, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.06507654
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233057353825741030, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.06507654
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233057353825741030, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.0754717
       objectReference: {fileID: 0}
     - target: {fileID: 4233057353825741030, guid: e0d2db23ee1de4e4188d45f0d9c0f20a, type: 3}
       propertyPath: m_Intensity
@@ -83941,12 +84060,36 @@ PrefabInstance:
       value: 2.83
       objectReference: {fileID: 0}
     - target: {fileID: 7880877869412569713, guid: 4c24d65aaa139f647beeb6e4f5f0fcf2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.030402254
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880877869412569713, guid: 4c24d65aaa139f647beeb6e4f5f0fcf2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.030402254
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880877869412569713, guid: 4c24d65aaa139f647beeb6e4f5f0fcf2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.03773582
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880877869412569713, guid: 4c24d65aaa139f647beeb6e4f5f0fcf2, type: 3}
       propertyPath: m_Intensity
       value: 3.86
       objectReference: {fileID: 0}
     - target: {fileID: 9035070407900843703, guid: 4c24d65aaa139f647beeb6e4f5f0fcf2, type: 3}
       propertyPath: m_Range
       value: 2.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035070407900843703, guid: 4c24d65aaa139f647beeb6e4f5f0fcf2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.09761479
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035070407900843703, guid: 4c24d65aaa139f647beeb6e4f5f0fcf2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.09761479
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035070407900843703, guid: 4c24d65aaa139f647beeb6e4f5f0fcf2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.11320752
       objectReference: {fileID: 0}
     - target: {fileID: 9035070407900843703, guid: 4c24d65aaa139f647beeb6e4f5f0fcf2, type: 3}
       propertyPath: m_Intensity
@@ -84241,6 +84384,18 @@ PrefabInstance:
     - target: {fileID: 1395790996937910486, guid: 227480fcdf8fc064c90d7fc04112ca8c, type: 3}
       propertyPath: m_Range
       value: 2.1896362
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395790996937910486, guid: 227480fcdf8fc064c90d7fc04112ca8c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.48316124
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395790996937910486, guid: 227480fcdf8fc064c90d7fc04112ca8c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.48316124
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395790996937910486, guid: 227480fcdf8fc064c90d7fc04112ca8c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8207547
       objectReference: {fileID: 0}
     - target: {fileID: 1395790996937910486, guid: 227480fcdf8fc064c90d7fc04112ca8c, type: 3}
       propertyPath: m_Intensity
@@ -85796,6 +85951,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 916297753463036072, guid: bbb97af8e351ccd449097999b3fd2d0f, type: 3}
   m_PrefabInstance: {fileID: 2089733794}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2089982882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 963194228}
+    m_Modifications:
+    - target: {fileID: 1147965471979518, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_Name
+      value: Flashlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.77878493
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.6231087
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.06770501
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.02540873
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 76.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848275991718962, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -11.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 108598554077249260, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
+      propertyPath: m_Intensity
+      value: 1.94
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0ddea81a21def2441b61569e0a44ca14, type: 3}
 --- !u!1001 &2095068239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87151,7 +87367,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5188679, g: 0.08517263, b: 0.08517263, a: 1}
   m_Intensity: 1.95
   m_Range: 3.8025622
   m_SpotAngle: 159.10497
