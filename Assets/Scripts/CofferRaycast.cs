@@ -51,6 +51,7 @@ public class CofferRaycast : MonoBehaviour
             {
                 CrosshairChange(false);
                 doOnce = false;
+                text.text = "";
             }
         }
     }
