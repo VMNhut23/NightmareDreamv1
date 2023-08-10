@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CofferRaycast : MonoBehaviour
@@ -11,8 +12,9 @@ public class CofferRaycast : MonoBehaviour
     [SerializeField] private Image crosshair; 
     [SerializeField] private KeyCode openCoffer = KeyCode.E;
     [SerializeField] private Text text;
+    [SerializeField] private UnityEvent OnClick;
 
-     private CofferController raycastObj;
+    private CofferController raycastObj;
     private bool isCrosshairActive;
     private bool doOnce;
 
@@ -33,7 +35,6 @@ public class CofferRaycast : MonoBehaviour
                 {
                     raycastObj = hit.collider.gameObject.GetComponent<CofferController>();
                     CrosshairChange(true);
-                    
                 }
                 isCrosshairActive = true;
                 doOnce = true;
