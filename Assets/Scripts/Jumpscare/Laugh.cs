@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Laugh : MonoBehaviour
 {
-    public GameObject deadBody;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            deadBody.SetActive(true);
+            if (AudioManager.HasInstance)
+            {
+                AudioManager.Instance.PlaySE(AUDIO.SE_SE_LAUGH);
+            }
+            StartCoroutine(Destroy());
         }
-        StartCoroutine(EndJumpscare());
     }
-    IEnumerator EndJumpscare()
+    IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(6f);
-        deadBody.SetActive(false);
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
 }
