@@ -5,71 +5,24 @@ using TMPro;
 
 public class DrawerController : MonoBehaviour
 {
-    public float smooth = 2.0f;
-    public TextMeshProUGUI text;
-    public float DeskDrawer = 0.165f;
+    private Animator drawerAim;
+    private bool drawerOpen = false;
 
-    private Vector3 defaulPos;
-    private Vector3 openPos;
-    private bool isOpen, trig;
-
-    private void Start()
+    private void Awake()
     {
-        defaulPos = transform.position;
-        openPos = new Vector3(defaulPos.x, defaulPos.y, defaulPos.z+ DeskDrawer);
+        drawerAim = GetComponent<Animator>();
     }
-
-    public void Update()
+    public void PlayAnimation()
     {
-        OpenClose();
-    }
-    private void OpenClose()
-    {
-        if (isOpen)
+        if (!drawerOpen)
         {
-            transform.position = Vector3.Slerp(transform.position, openPos, Time.deltaTime * smooth);
+            drawerAim.Play("DrawerOpen", 0, 0.0f);
+            drawerOpen = true;
         }
         else
         {
-            transform.position = Vector3.Slerp(transform.position, defaulPos, Time.deltaTime * smooth);
-        }
-        if (Input.GetKeyDown(KeyCode.E) && trig)
-        {
-            isOpen = !isOpen;
-        }
-        if (trig)
-        {
-            if (isOpen)
-            {
-                text.text = "Close E";
-            }
-            else
-            {
-                text.text = "Open E";
-            }
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (!isOpen)
-            {
-                text.text = "Close E";
-            }
-            else
-            {
-                text.text = "Open E";
-            }
-            trig = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            text.text = "";
-            trig = false;
+            drawerAim.Play("DrawerClose", 0, 0.0f);
+            drawerOpen = false;
         }
     }
 }

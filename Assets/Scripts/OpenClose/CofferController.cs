@@ -7,18 +7,10 @@ public class CofferController : MonoBehaviour
 {
     private Animator cofferAim;
     private bool cofferOpen = false;
-    public UnityEvent unityEvent;
-
     private void Awake()
     {
         cofferAim = GetComponent<Animator>();
     }
-
-    public void Interact()
-    {
-        unityEvent?.Invoke();
-    }
-
     public void PlayAnimation()
     {
         if (!cofferOpen)
