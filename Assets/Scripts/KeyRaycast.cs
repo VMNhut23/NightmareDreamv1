@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Raycast : MonoBehaviour
+public class KeyRaycast : MonoBehaviour
 {
     [SerializeField] private int rayLength = 5;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
-    [SerializeField] private Image crosshair; 
-    [SerializeField] private KeyCode openCoffer = KeyCode.E;
+    [SerializeField] private Image crosshair;
+    [SerializeField] private KeyCode openDoor = KeyCode.E;
+    [SerializeField] private Text text;
 
     private KeyController raycastObj;
     private bool isCrosshairActive;
@@ -36,8 +36,9 @@ public class Raycast : MonoBehaviour
                 }
                 isCrosshairActive = true;
                 doOnce = true;
+                text.text = "[E]";
 
-                if (Input.GetKeyDown(openCoffer))
+                if (Input.GetKeyDown(openDoor))
                 {
                     raycastObj.ObjectInteraction();
                 }
@@ -49,6 +50,7 @@ public class Raycast : MonoBehaviour
             {
                 CrosshairChange(false);
                 doOnce = false;
+                text.text = "";
             }
         }
     }
