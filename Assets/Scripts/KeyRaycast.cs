@@ -40,7 +40,10 @@ public class KeyRaycast : MonoBehaviour
 
                 if (Input.GetKeyDown(openDoor))
                 {
-                    raycastObj.ObjectInteraction();
+                    if (raycastObj != null)
+                    {
+                        raycastObj.ObjectInteraction();
+                    }
                 }
             }
         }

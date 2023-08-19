@@ -39,7 +39,11 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(openCoffer))
                 {
-                    raycastObj.ObjectInteraction();
+                    if (raycastObj != null)
+                    {
+                        raycastObj.ObjectInteraction();
+                    }
+                    
                 }
             }
         }
