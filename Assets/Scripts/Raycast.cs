@@ -12,11 +12,11 @@ public class Raycast : MonoBehaviour
     [SerializeField] private Image crosshair; 
     [SerializeField] private KeyCode openCoffer = KeyCode.E;
 
-    private KeyController raycastObj;
+    private ItemController raycastObj;
     private bool isCrosshairActive;
     private bool doOnce;
 
-    private const string interactableTag = "InteractiveObject";
+    private const string interactableTag = "InteractiveObjectOpenClose";
 
     private void Update()
     {
@@ -31,7 +31,7 @@ public class Raycast : MonoBehaviour
             {
                 if (!doOnce)
                 {
-                    raycastObj = hit.collider.gameObject.GetComponent<KeyController>();
+                    raycastObj = hit.collider.gameObject.GetComponent<ItemController>();
                     CrosshairChange(true);
                 }
                 isCrosshairActive = true;
@@ -41,7 +41,7 @@ public class Raycast : MonoBehaviour
                 {
                     if (raycastObj != null)
                     {
-                        raycastObj.ObjectInteraction();
+                        raycastObj.OnClick();
                     }
                     
                 }

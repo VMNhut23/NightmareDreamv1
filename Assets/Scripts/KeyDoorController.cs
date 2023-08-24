@@ -45,10 +45,11 @@ public class KeyDoorController : MonoBehaviour
                 doorOpen = false;
                 StartCoroutine(PauseDoorInteraction());
             }
-            else
-            {
-                StartCoroutine(ShowDoorLocked());
-            }
+            
+        }
+        else
+        {
+            StartCoroutine(ShowDoorLocked());
         }
     }
     IEnumerator ShowDoorLocked()
