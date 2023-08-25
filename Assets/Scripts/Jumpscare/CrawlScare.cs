@@ -5,17 +5,20 @@ using UnityEngine;
 public class CrawlScare : MonoBehaviour
 {
     public GameObject crawl;
-    private void OnTriggerEnter(Collider other)
+    public AudioSource soundCrawl;
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            soundCrawl.Play();
             crawl.SetActive(true);
             StartCoroutine(EndScare());
         }
     }
     IEnumerator EndScare()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.8f);
+        soundCrawl.Pause();
         Destroy(gameObject);
         Destroy(crawl);
     }
