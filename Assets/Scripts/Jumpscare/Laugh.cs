@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Laugh : MonoBehaviour
 {
+    public AudioSource audioScare;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (AudioManager.HasInstance)
-            {
-                AudioManager.Instance.PlaySE(AUDIO.SE_SE_LAUGH);
-            }
-            StartCoroutine(Destroy());
+            audioScare.Play();
         }
     }
-    IEnumerator Destroy()
+    private void OnTriggerExit(Collider other)
     {
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            audioScare.Pause();
+            Destroy(gameObject);
+        }
     }
 }

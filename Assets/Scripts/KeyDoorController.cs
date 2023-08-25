@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KeyDoorController : MonoBehaviour
 {
+    public AudioSource doorLocked;
     private Animator doorAim;
     private bool doorOpen = false;
 
@@ -49,6 +50,8 @@ public class KeyDoorController : MonoBehaviour
         }
         else
         {
+            doorLocked.Play();
+            doorAim.Play("DoorLocked", 0, 0.0f);
             StartCoroutine(ShowDoorLocked());
         }
     }
