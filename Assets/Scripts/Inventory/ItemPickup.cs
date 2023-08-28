@@ -3,46 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KeyRaycast : MonoBehaviour
+public class ItemPickup : MonoBehaviour
 {
     [SerializeField] private int rayLength = 5;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
     [SerializeField] private Image crosshair;
-    [SerializeField] private KeyCode openDoor = KeyCode.E;
-    [SerializeField] private Text text;
-        
-    private KeyController raycastObj;
-    private bool isCrosshairActive;
+    [SerializeField] private PlayerInventory playerInventory;
+    private Item item;
     private bool doOnce;
+    private bool isCrosshairActive;
+    private const string interactableTag = "InteractiveItem";
 
-    private const string interactableTag = "InteractiveObject";
-
-    private void Update()
+    void Update()
     {
         RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
-
         if (Physics.Raycast(transform.position, fwd, out hit, rayLength, mask))
         {
             if (hit.collider.CompareTag(interactableTag))
             {
                 if (!doOnce)
                 {
-                    raycastObj = hit.collider.gameObject.GetComponent<KeyController>();
+                    item = hit.collider.GetComponent<Item>();
                     CrosshairChange(true);
                 }
                 isCrosshairActive = true;
                 doOnce = true;
-                text.text = "[E]";
-
-                if (Input.GetKeyDown(openDoor))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (raycastObj != null)
+                    if (item != null)
                     {
-                        raycastObj.ObjectInteraction();
+                        PickupItem(item);
                     }
                 }
             }
@@ -53,7 +47,6 @@ public class KeyRaycast : MonoBehaviour
             {
                 CrosshairChange(false);
                 doOnce = false;
-                text.text = "";
             }
         }
     }
@@ -68,5 +61,10 @@ public class KeyRaycast : MonoBehaviour
             crosshair.color = Color.white;
             isCrosshairActive = false;
         }
+    }
+    private void PickupItem(Item item)
+    {
+        playerInventory.AddItem(item);
+        item.gameObject.SetActive(false);
     }
 }

@@ -32,7 +32,7 @@ public class Raycast : MonoBehaviour
                 if (!doOnce)
                 {
                     raycastObj = hit.collider.gameObject.GetComponent<ItemController>();
-                    CrosshairChange(true);
+                    CrosshairChange(true);  
                 }
                 isCrosshairActive = true;
                 doOnce = true;
