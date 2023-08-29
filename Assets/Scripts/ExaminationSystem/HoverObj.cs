@@ -7,7 +7,7 @@ public class HoverObj : MonoBehaviour
     public GameObject inspection;
     public InspectionObj InspectionObj;
     public int index;
-    public Text text;
+    public Text text;   
     private void Update()
     {
         Ray ray = Camera.main.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);

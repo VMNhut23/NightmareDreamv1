@@ -8,6 +8,7 @@ public class FlickerLight : MonoBehaviour
     public Light flickerLight;
     public GameObject decal;
     public GameObject blood;
+    public GameObject monsterHead;
 
     public float minSpeed = 0.1f;
     public float maxSpeed = 0.5f;
@@ -26,6 +27,7 @@ public class FlickerLight : MonoBehaviour
             kill.Play();
             decal.SetActive(true);
             blood.SetActive(false);
+            monsterHead.SetActive(true);
             StartCoroutine(Run());
         }
     }
@@ -46,6 +48,7 @@ public class FlickerLight : MonoBehaviour
         {
             kill.Pause();
             blood.SetActive(true);
+            monsterHead.SetActive(false);
             StartCoroutine(End());
         }
     }
