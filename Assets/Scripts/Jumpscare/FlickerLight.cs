@@ -9,6 +9,7 @@ public class FlickerLight : MonoBehaviour
     public GameObject decal;
     public GameObject blood;
     public GameObject monsterHead;
+    public Animator door;
 
     public float minSpeed = 0.1f;
     public float maxSpeed = 0.5f;
@@ -18,6 +19,7 @@ public class FlickerLight : MonoBehaviour
     void Start()
     {
         flickerLight = GetComponent<Light>();
+        door = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,6 +30,7 @@ public class FlickerLight : MonoBehaviour
             decal.SetActive(true);
             blood.SetActive(false);
             monsterHead.SetActive(true);
+            door.Play("DoorClose", 0, 0.0f);
             StartCoroutine(Run());
         }
     }
@@ -49,6 +52,7 @@ public class FlickerLight : MonoBehaviour
             kill.Pause();
             blood.SetActive(true);
             monsterHead.SetActive(false);
+            door.Play("DoorOpen", 0, 0.0f);
             StartCoroutine(End());
         }
     }
