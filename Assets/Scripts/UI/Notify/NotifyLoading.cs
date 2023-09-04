@@ -26,7 +26,6 @@ public class NotifyLoading : BaseNotify
     {
         this.slProgress.value = dt;
     }
-
     public void AnimationLoaddingText()
     {
         DOTween.Kill(this.tmpLoading.GetInstanceID().ToString());
