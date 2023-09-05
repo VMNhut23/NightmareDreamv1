@@ -7,6 +7,9 @@ TagManager:
   - InteractiveObject
   - InteractiveObjectOpenClose
   - InteractiveItem
+  - Grass
+  - Wood
+  - Concrete
   layers:
   - Default
   - TransparentFX
