@@ -60,6 +60,7 @@ public class NotifyLoading : BaseNotify
         Sequence seq = DOTween.Sequence();
         seq.SetId(this.slProgress.GetInstanceID().ToString());
         SetProgress(0);
+        seq.Append(this.slProgress.DOValue(slProgress.maxValue, dt).SetEase(Ease.InQuad));
         seq.OnComplete(() =>
         {
             OnComplete?.Invoke();

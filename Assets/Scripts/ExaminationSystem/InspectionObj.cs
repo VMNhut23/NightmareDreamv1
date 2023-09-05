@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class InspectionObj : MonoBehaviour
 {
-    public Image image;
     public GameObject[] inspectionObj;
     private int currIndex;
     public void TurnOnInspection(int index)

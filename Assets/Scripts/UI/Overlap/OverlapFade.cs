@@ -33,7 +33,7 @@ public class OverlapFade : BaseOverlap
         imgFade.color = fadeColor;
         SetAlpha(0);
         Sequence seq = DOTween.Sequence();
-        seq.Append(this.imgFade.DOFade(1f, fadeTime));
+        seq.Append(imgFade.DOFade(1f, fadeTime));
         seq.Append(this.imgFade.DOFade(0, fadeTime));
         seq.OnComplete(() =>
         {
@@ -56,11 +56,6 @@ public class OverlapFade : BaseOverlap
         {
             UIManager.Instance.ShowScreen<ScreenGame>();
         }
-
-        /*if (AudioManager.HasInstance)
-        {
-            AudioManager.Instance.PlayBGM(AUDIO.BGM_BMG_4);
-        }*/
     }
 
 }

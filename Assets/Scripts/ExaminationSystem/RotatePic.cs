@@ -8,7 +8,7 @@ public class RotatePic : MonoBehaviour
     public InspectionObj InspectionObj;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             inspection.SetActive(false);
             InspectionObj.TurnOffInspection();
