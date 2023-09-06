@@ -4,11 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 
-public class ChangeScene : MonoBehaviour
+public class ChangeScene : BaseNotify
 {
-    public TimelineClip timelineClip;
+    public override void Show(object data)
+    {
+        base.Show(data);
+    }
+
+    public override void Hide()
+    {
+        base.Hide();
+    }
     private void OnEnable()
     {
-        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        if(UIManager.HasInstance)
+        {
+            UIManager.Instance.ShowNotify<NotifyLoadingGame>();
+        }
+        this.Hide();
     }
 }

@@ -35,7 +35,8 @@ public class ScreenHome : BaseScreen
     {
         if (UIManager.HasInstance)
         {
-            UIManager.Instance.ShowNotify<NotifyLoadingGame>();
+            //UIManager.Instance.ShowNotify<NotifyLoadingGame>();
+            GameManager.Instance.LoadScene("FirstStory");
         }
         this.Hide();
     }
