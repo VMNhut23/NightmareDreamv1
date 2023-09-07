@@ -1,6 +1,7 @@
 ﻿public static class AUDIO
 {
 	  public const string BGM_BGM_01 = "BGM_01";
+	  public const string BGM_BGM_MAIN = "BGM_Main";
 	
 	  public const string SE_SE_BROKENPLATE = "SE_BrokenPlate";
 	  public const string SE_SE_CLOSEDOOR = "SE_CloseDoor";

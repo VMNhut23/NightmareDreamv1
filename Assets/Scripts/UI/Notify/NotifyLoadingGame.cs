@@ -8,9 +8,8 @@ using System;
 
 public class NotifyLoadingGame : BaseNotify
 {
-    public TextMeshProUGUI loadingPercentText;
-    public Slider loadingSlider;
-
+    public GameObject loadingInfo, loadingIcon;
+    private AsyncOperation async;
     public override void Init()
     {
         base.Init();
@@ -29,27 +28,16 @@ public class NotifyLoadingGame : BaseNotify
 
     private IEnumerator LoadScene()
     {
-        yield return null;
-
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Main");
-        asyncOperation.allowSceneActivation = false;
-        while (!asyncOperation.isDone)
+        async = SceneManager.LoadSceneAsync("Main");
+        loadingIcon.SetActive(true);
+        loadingInfo.SetActive(false);
+        yield return true;
+        async.allowSceneActivation = false;
+        loadingIcon.SetActive(false);
+        loadingInfo.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            loadingSlider.value = asyncOperation.progress;
-            loadingPercentText.SetText($"LOADING SCENES: {asyncOperation.progress * 100}%");
-            if (asyncOperation.progress >= 0.9f)
-            {
-                loadingSlider.value = 1f;
-                loadingPercentText.SetText($"LOADING SCENES: {loadingSlider.value * 100}%");
-                if (UIManager.HasInstance)
-                {
-                    UIManager.Instance.ShowOverlap<OverlapFade>();
-                }
-                yield return new WaitForSeconds(1f);
-                asyncOperation.allowSceneActivation = true;
-                this.Hide();
-            }
-            yield return null;
+            async.allowSceneActivation = true;
         }
     }
 }
