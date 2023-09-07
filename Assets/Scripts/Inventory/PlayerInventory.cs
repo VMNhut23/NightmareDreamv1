@@ -11,4 +11,8 @@ public class PlayerInventory : MonoBehaviour
         items.Add(item);
         Debug.Log("Added item: " + item.name);
     }
+    public void RemoveItem(Item item)
+    {
+        items.Remove(item);
+    }
 }

@@ -6,14 +6,16 @@ public class Broken : MonoBehaviour
 {
     public GameObject plate;
     public GameObject broken_plate;
-    public AudioSource soundScare;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             plate.SetActive(true);
             broken_plate.SetActive(true);
-            soundScare.Play();
+            if (AudioManager.HasInstance)
+            {
+                AudioManager.Instance.PlaySE(AUDIO.SE_SE_BROKENPLATE);
+            }
             StartCoroutine(EndTrigger());
         }
     }
@@ -21,7 +23,6 @@ public class Broken : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         plate.SetActive(false);
-        soundScare.Pause();
         Destroy(gameObject);
     }
     

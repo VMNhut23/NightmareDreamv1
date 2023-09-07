@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ThingScare : MonoBehaviour
 {
-    public GameObject thingScare;      
+    public GameObject mainCam;
+    public GameObject scareCam;     
     public Text text;
 
     void Update()
@@ -21,23 +22,18 @@ public class ThingScare : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.E))
             {
-                thingScare.SetActive(true);
+                text.text = "";
+                mainCam.SetActive(false);
+                scareCam.SetActive(true);
                 StartCoroutine(End());
             }
-        }
-        else
-        {
-            if (text != null)
-            {
-                text.text = "";
-            }
-            
         }
     }
     IEnumerator End()
     {
-        yield return new WaitForSeconds(5f);
-        thingScare.SetActive(false);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(2f);
+        mainCam.SetActive(true);
+        scareCam.SetActive(false);
+        
     }
 }

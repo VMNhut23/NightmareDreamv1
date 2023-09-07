@@ -20,12 +20,20 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (open)//открыть
+        if (open)
         {
+            if (AudioManager.HasInstance)
+            {
+                AudioManager.Instance.PlaySE(AUDIO.SE_SE_OPENDOOR);
+            }
             transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, openRot, Time.deltaTime * smooth);
         }
-        else//закрыть
+        else
         {
+            if (AudioManager.HasInstance)
+            {
+                AudioManager.Instance.PlaySE(AUDIO.SE_SE_CLOSEDOOR);
+            }
             transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, defaulRot, Time.deltaTime * smooth);
         }
         if (Input.GetKeyDown(KeyCode.E) && trig)

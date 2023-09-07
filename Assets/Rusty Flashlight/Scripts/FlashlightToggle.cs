@@ -5,7 +5,6 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class FlashlightToggle : MonoBehaviour
 {
-    public AudioSource soundFl;
     public Animator flash;
     public GameObject lightGO; 
     private bool isOn = false; 
@@ -35,13 +34,14 @@ public class FlashlightToggle : MonoBehaviour
             if (isOn)
             {
                 lightGO.SetActive(true);
-                soundFl.Play();
+                if (AudioManager.HasInstance)
+                {
+                    AudioManager.Instance.PlaySE(AUDIO.SE_SE_FLASHLIGHT);
+                }
             }
             else
             {
                 lightGO.SetActive(false);
-                soundFl.Play();
-
             }
         }
     }

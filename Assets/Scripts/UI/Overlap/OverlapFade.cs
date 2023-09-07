@@ -56,6 +56,10 @@ public class OverlapFade : BaseOverlap
         {
             UIManager.Instance.ShowScreen<ScreenGame>();
         }
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlayBGM(AUDIO.BGM_BGM_01);
+        }
     }
 
 }

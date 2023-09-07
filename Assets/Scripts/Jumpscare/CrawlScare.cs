@@ -10,7 +10,10 @@ public class CrawlScare : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            soundCrawl.Play();
+            if (AudioManager.HasInstance)
+            {
+                AudioManager.Instance.PlaySE(AUDIO.SE_SE_JUMPSCARECRAWL);
+            }
             crawl.SetActive(true);
             StartCoroutine(EndScare());
         }
@@ -18,7 +21,6 @@ public class CrawlScare : MonoBehaviour
     IEnumerator EndScare()
     {
         yield return new WaitForSeconds(0.8f);
-        soundCrawl.Pause();
         Destroy(gameObject);
         Destroy(crawl);
     }

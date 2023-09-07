@@ -8,13 +8,15 @@ public class ScareOnRoomBook : MonoBehaviour
     public Light lightScare;
     public GameObject obj;
     public Animator doorBook;
-    public AudioSource soundRitual;
     private void OnTriggerEnter(Collider other)
     {
         obj.SetActive(true);
         doorBook.Play("DoorBookOff", 0, 0.0f);
         lightScare.enabled = true;
-        soundRitual.Play();
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_SE_SCAREONROOM);
+        }
         StartCoroutine(End());
     }
     IEnumerator End()
@@ -23,7 +25,6 @@ public class ScareOnRoomBook : MonoBehaviour
         obj.SetActive(false);
         doorBook.Play("DoorBookOn", 0, 0.0f);
         lightScare.enabled = false;
-        soundRitual.Pause();
         Destroy(gameObject);
     }
 }

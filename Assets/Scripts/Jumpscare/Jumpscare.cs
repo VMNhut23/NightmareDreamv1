@@ -7,14 +7,16 @@ public class Jumpscare : MonoBehaviour
     public GameObject mainCam;
     public GameObject jumpScare;
     public GameObject scare;
-    public AudioSource audioSource;
 
     private void OnTriggerEnter()
     {
         {
             mainCam.SetActive(false);
             jumpScare.SetActive(true);
-            audioSource.Play();
+            if (AudioManager.HasInstance)
+            {
+                AudioManager.Instance.PlaySE(AUDIO.SE_SE_JUMPSCARE);
+            }
             Destroy(scare);
             StartCoroutine(EndJumpScare());
         }

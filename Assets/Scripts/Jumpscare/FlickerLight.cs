@@ -16,11 +16,6 @@ public class FlickerLight : MonoBehaviour
 
     public float minIntensity = 0.01f;
     public float maxIntensity = 0.2f;
-    void Start()
-    {
-        flickerLight = GetComponent<Light>();
-        door = GetComponent<Animator>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -60,6 +55,7 @@ public class FlickerLight : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         decal.SetActive(false);
+        flickerLight.enabled = false;
         Destroy(gameObject);
     }
 }

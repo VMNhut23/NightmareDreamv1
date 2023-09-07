@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class ScreenGame : BaseScreen
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Show(object data)
     {
-        
+        base.Show(data);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Hide()
     {
-        
+        base.Hide();
+    }
+    public void Resume()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            this.Hide();
+            if (UIManager.HasInstance)
+            {
+                UIManager.Instance.ShowPopup<PopupSetting>();
+                
+            }
+            
+        }
     }
 }

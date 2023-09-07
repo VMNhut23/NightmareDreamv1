@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class OnOffFl : MonoBehaviour
 {
     public GameObject flashlight;
-    public TextMeshProUGUI text;
+    public Text text;
 
     void Start()
     {
@@ -16,8 +16,7 @@ public class OnOffFl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            text.text = "Press X to use flashlight" +
-                        "\nPress C to on/off ";
+            text.text = "Press X to use flashligh, C to on/off ";
             StartCoroutine(End());
         }
     }
