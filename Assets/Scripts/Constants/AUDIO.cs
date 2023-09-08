@@ -4,6 +4,7 @@
 	  public const string BGM_BGM_MAIN = "BGM_Main";
 	
 	  public const string SE_SE_BROKENPLATE = "SE_BrokenPlate";
+	  public const string SE_SE_CLICK = "SE_Click";
 	  public const string SE_SE_CLOSEDOOR = "SE_CloseDoor";
 	  public const string SE_SE_DOORLOCKED = "SE_DoorLocked";
 	  public const string SE_SE_FLASHLIGHT = "SE_Flashlight";

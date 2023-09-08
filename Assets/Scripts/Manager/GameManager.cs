@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : BaseManager<GameManager>
 {
+    private bool isPlaying = false;
+    public bool IsPlaying => isPlaying;
     private void Start()
     {
         if (UIManager.HasInstance)
@@ -12,7 +14,6 @@ public class GameManager : BaseManager<GameManager>
             UIManager.Instance.ShowScreen<ScreenHome>();
         }
     }
-
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

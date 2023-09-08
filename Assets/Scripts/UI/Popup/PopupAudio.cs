@@ -68,6 +68,14 @@ public class PopupAudio : BasePopup
                 AudioManager.Instance.ChangeSEVolume(effectVolume);
             }
         }
+        if (UIManager.HasInstance)
+        {
+            UIManager.Instance.ShowScreen<ScreenHome>();
+        }
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_SE_CLICK);
+        }
         this.Hide();
     }
 

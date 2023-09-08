@@ -13,17 +13,16 @@ public class ScreenGame : BaseScreen
     {
         base.Hide();
     }
-    public void Resume()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            this.Hide();
             if (UIManager.HasInstance)
             {
-                UIManager.Instance.ShowPopup<PopupSetting>();
-                
+                UIManager.Instance.ShowPopup<PopupPause>();
             }
-            
+            this.Hide();
         }
     }
+    
 }

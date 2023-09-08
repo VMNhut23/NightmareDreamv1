@@ -36,19 +36,19 @@ public class KeyDoorController : MonoBehaviour
             if (!doorOpen && !pauseInteraction)
             {
                 doorAim.Play(openAnimationnName, 0, 0.0f);
-                if (AudioManager.HasInstance)
+                /*if (AudioManager.HasInstance)
                 {
                     AudioManager.Instance.PlaySE(AUDIO.SE_SE_OPENDOOR);
-                }
+                }*/
                 doorOpen = true;
                 StartCoroutine(PauseDoorInteraction());
             }
             else if (doorOpen && !pauseInteraction)
             {
-                if (AudioManager.HasInstance)
+                /*if (AudioManager.HasInstance)
                 {
                     AudioManager.Instance.PlaySE(AUDIO.SE_SE_CLOSEDOOR);
-                }
+                }*/
                 doorAim.Play(closeAnimationnName, 0, 0.0f);
                 doorOpen = false;
                 StartCoroutine(PauseDoorInteraction());
@@ -57,10 +57,10 @@ public class KeyDoorController : MonoBehaviour
         }
         else
         {
-            if (AudioManager.HasInstance)
-            {
-                AudioManager.Instance.PlaySE(AUDIO.SE_SE_DOORLOCKED);
-            }
+            //if (AudioManager.HasInstance)
+            //{
+                //AudioManager.Instance.PlaySE(AUDIO.SE_SE_DOORLOCKED);
+            //}
             doorAim.Play("DoorLocked", 0, 0.0f);
             StartCoroutine(ShowDoorLocked());
         }

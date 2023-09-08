@@ -16,6 +16,10 @@ public class FlashlightToggle : MonoBehaviour
     }
     void Update()
     {
+        FL();
+    }
+    void FL()
+    {
         if (Input.GetKeyDown(KeyCode.C))
         {
             isOn = !isOn;
@@ -42,6 +46,10 @@ public class FlashlightToggle : MonoBehaviour
             else
             {
                 lightGO.SetActive(false);
+                if (AudioManager.HasInstance)
+                {
+                    AudioManager.Instance.PlaySE(AUDIO.SE_SE_FLASHLIGHT);
+                }
             }
         }
     }

@@ -28,16 +28,21 @@ public class NotifyLoadingGame : BaseNotify
 
     private IEnumerator LoadScene()
     {
+        yield return null;
         async = SceneManager.LoadSceneAsync("Main");
         loadingIcon.SetActive(true);
-        loadingInfo.SetActive(false);
-        yield return true;
+        loadingInfo.SetActive(true);
         async.allowSceneActivation = false;
+
+        yield return new WaitForSeconds(5f);
         loadingIcon.SetActive(false);
         loadingInfo.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.Space))
+        async.allowSceneActivation = true;
+        if (UIManager.HasInstance)
         {
-            async.allowSceneActivation = true;
+            UIManager.Instance.ShowOverlap<OverlapFade>();
         }
+        this.Hide();
+
     }
 }

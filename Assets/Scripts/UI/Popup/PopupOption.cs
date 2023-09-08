@@ -19,5 +19,22 @@ public class PopupOption : BasePopup
         {
             UIManager.Instance.ShowPopup<PopupAudio>();
         }
+        this.Hide();
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_SE_CLICK);
+        }
+    }
+    public void OnClickClose()
+    {
+        if (UIManager.HasInstance)
+        {
+            UIManager.Instance.ShowScreen<ScreenHome>();
+        }
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_SE_CLICK);
+        }
+        this.Hide();
     }
 }
